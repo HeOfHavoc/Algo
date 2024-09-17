@@ -1,0 +1,30 @@
+BEGIN
+    length := 0
+    word_count := 0
+    vowel_count := 0
+    vowels := "aeiou"
+    
+    READ character
+    
+    WHILE (character != '.') DO
+        length := length + 1
+        
+        IF (character in vowels) THEN
+            vowel_count := vowel_count + 1
+        END_IF
+        
+        IF (character = ' ') THEN
+            word_count := word_count + 1
+        END_IF
+        
+        READ next character
+    END_WHILE
+    
+    IF (character = '.') AND (length > 0 AND sentence[length - 1] != ' ') THEN
+        word_count := word_count + 1
+    END_IF
+    
+    PRINT "Length of the sentence: " + length
+    PRINT "Number of words: " + (word_count + 1)
+    PRINT "Number of vowels: " + vowel_count
+END
